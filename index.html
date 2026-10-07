@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Storage & Drive Calculator</title>
+  <title>Video Storage & Bitrate Calculator | Calcola Spazio per Produzioni Video</title>
+  <meta name="description" content="Calcola lo spazio di archiviazione necessario per Apple ProRes, All-Intra 10-bit, RAW e Long-GOP. Consigli su SSD e drive per videomaker e montatori.">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center p-4 sm:p-8 font-sans">
 
-  <div class="max-w-xl w-full bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
+  <!-- Calcolatore Principale -->
+  <div class="max-w-2xl w-full bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
     <div class="mb-6">
-      <h1 class="text-2xl font-bold text-emerald-400">Video Storage & Drive Calculator</h1>
-      <p class="text-sm text-slate-400 mt-1">Calcola lo spazio necessario e l'hardware consigliato per la tua produzione.</p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-emerald-400">Video Storage & Drive Calculator</h1>
+      <p class="text-sm text-slate-400 mt-1">Calcola con precisione lo spazio su disco necessario e l'hardware consigliato per la tua produzione video.</p>
     </div>
 
-    <!-- Form Inputs -->
+    <!-- Campi di Input -->
     <div class="space-y-4">
       <div>
         <label class="block text-sm font-medium mb-1 text-slate-300">Formato / Codec</label>
@@ -47,24 +49,24 @@
       </button>
     </div>
 
-    <!-- Output Box -->
+    <!-- Risultati -->
     <div id="resultsCard" class="hidden mt-6 pt-6 border-t border-slate-700 space-y-4">
       <div class="grid grid-cols-2 gap-4 text-center">
         <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
           <span class="text-xs text-slate-400 uppercase tracking-wider">Spazio Richiesto</span>
-          <p id="totalStorageDisplay" class="text-xl font-extrabold text-emerald-400 mt-1">--</p>
+          <p id="totalStorageDisplay" class="text-xl sm:text-2xl font-extrabold text-emerald-400 mt-1">--</p>
         </div>
         <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
           <span class="text-xs text-slate-400 uppercase tracking-wider">Bitrate Medio</span>
-          <p id="bitrateDisplay" class="text-xl font-bold text-slate-200 mt-1">--</p>
+          <p id="bitrateDisplay" class="text-xl sm:text-2xl font-bold text-slate-200 mt-1">--</p>
         </div>
       </div>
 
-      <!-- Affiliate Product Box -->
+      <!-- Box Affiliazione Hardware Amazon -->
       <div class="bg-slate-900 border border-emerald-500/30 rounded-xl p-4 mt-4">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wide">Supporto Consigliato</span>
-          <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded border border-slate-700">Testato per il bitrate selezionato</span>
+          <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wide">Storage Fisico Consigliato</span>
+          <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded border border-slate-700">Velocità verificata</span>
         </div>
         <h3 id="recommendationTitle" class="text-base font-semibold text-white">--</h3>
         <p id="recommendationDesc" class="text-xs text-slate-400 mt-1 leading-relaxed">--</p>
@@ -77,16 +79,84 @@
     </div>
   </div>
 
+  <!-- Sezione Approfondimento Tecnico & Tabella SEO -->
+  <section class="max-w-2xl w-full mt-10 space-y-8 text-slate-300 text-sm leading-relaxed">
+    <div class="bg-slate-800/60 border border-slate-700/70 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-white mb-3">Guida ai Codec: Quanto Spazio Occupano i Video?</h2>
+      <p class="mb-4">
+        La scelta tra un codec compresso (come Long-GOP) e un formato intraframe (come Apple ProRes o All-Intra) incide sia sul volume occupato su disco sia sul carico di lavoro della CPU/GPU durante il montaggio in timeline.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-700 text-slate-400 uppercase tracking-wider">
+              <th class="py-2">Formato / Codec</th>
+              <th class="py-2">Risoluzione & FPS</th>
+              <th class="py-2">Bitrate Medio</th>
+              <th class="py-2">Spazio per 1 Ora</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y border-slate-800">
+            <tr>
+              <td class="py-2 font-medium text-emerald-400">Apple ProRes 422 HQ</td>
+              <td>4K UHD @ 25 fps</td>
+              <td>~220 Mbps</td>
+              <td>~99 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium text-emerald-400">ProRes RAW / CinemaDNG</td>
+              <td>4K DCI @ 25 fps</td>
+              <td>~450 Mbps</td>
+              <td>~202 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium text-emerald-400">H.265 All-Intra 10-bit</td>
+              <td>4K UHD @ 25 fps</td>
+              <td>~200 Mbps</td>
+              <td>~90 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium text-emerald-400">H.264 / H.265 Long-GOP</td>
+              <td>4K UHD @ 25 fps</td>
+              <td>~100 Mbps</td>
+              <td>~45 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium text-emerald-400">ProRes Proxy</td>
+              <td>1080p / 4K Proxy</td>
+              <td>~45 Mbps</td>
+              <td>~20 GB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bg-slate-800/60 border border-slate-700/70 rounded-2xl p-6 space-y-3">
+      <h2 class="text-lg font-bold text-white">Consigli per il Set e l'Archiviazione</h2>
+      <ul class="list-disc list-inside space-y-2 text-slate-400">
+        <li><strong class="text-slate-200">Velocità costante:</strong> Per registrare in ProRes o All-Intra su SSD esterno tramite USB-C, assicurati che il disco garantisca una velocità di scrittura sequenziale sostenuta e non solo di picco.</li>
+        <li><strong class="text-slate-200">Margine di sicurezza:</strong> Considera sempre un 15-20% di spazio extra rispetto al calcolo teorico per gestire file proxy, render cache e file audio separati.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-12 mb-6 text-center text-xs text-slate-500">
+    <p>Strumento di calcolo stimato a scopo indicativo. I requisiti effettivi possono variare in base alla complessità visiva della scena.</p>
+    <p class="mt-1">In qualità di Affiliato Amazon, ricevo un guadagno per ciascun acquisto idoneo.</p>
+  </footer>
+
   <script>
     const BITRATE_SPECS = {
-      prores_422_hq: { base: 220, label: "Apple ProRes 422 HQ" },
-      prores_raw: { base: 450, label: "ProRes RAW / CinemaDNG" },
-      all_intra_10bit: { base: 200, label: "H.265 All-Intra 10-bit" },
-      long_gop_4k: { base: 100, label: "H.264/H.265 Long-GOP" },
-      prores_proxy: { base: 45, label: "Apple ProRes Proxy" }
+      prores_422_hq: { base: 220 },
+      prores_raw: { base: 450 },
+      all_intra_10bit: { base: 200 },
+      long_gop_4k: { base: 100 },
+      prores_proxy: { base: 45 }
     };
 
-    // ID Provvisorio (lo aggiorneremo nel passo dell'affiliazione)
     const AMAZON_TAG = "videotool-21";
 
     function runCalculator() {
@@ -103,12 +173,10 @@
       const totalGB = Math.round(((mbps / 8) * 3600 * hours) / 1000);
       const totalTB = (totalGB / 1000).toFixed(2);
 
-      // Mostra risultati
       document.getElementById("resultsCard").classList.remove("hidden");
       document.getElementById("totalStorageDisplay").innerText = totalGB >= 1000 ? `${totalTB} TB` : `${totalGB} GB`;
       document.getElementById("bitrateDisplay").innerText = `~${mbps} Mbps`;
 
-      // Logica raccomandazione disco
       const titleElem = document.getElementById("recommendationTitle");
       const descElem = document.getElementById("recommendationDesc");
       const linkElem = document.getElementById("affiliateBtn");
@@ -116,15 +184,15 @@
       let query = "";
       if (totalGB <= 600) {
         titleElem.innerText = "SSD Portatile 1TB ad Alta Velocità (1050 MB/s)";
-        descElem.innerText = "Ottimo per sessioni corte o riprese dirette in mobilità tramite USB-C.";
-        query = "ssd portatile 1tb sanDisk extreme samsung t7";
+        descElem.innerText = "Ideale per sessioni di ripresa corte o registrazioni dirette via USB-C da mirrorless.";
+        query = "ssd portatile 1tb sandisk extreme samsung t7";
       } else if (totalGB <= 2200) {
         titleElem.innerText = "SSD Portatile 2TB / 4TB Rugged Pro (2000 MB/s)";
         descElem.innerText = "Scrittura sostenuta elevata per evitare drop-frame durante recording ProRes o All-Intra.";
-        query = "ssd portatile 2tb 2000mb/s nvme";
+        query = "ssd portatile 2tb 2000mb nvme";
       } else {
         titleElem.innerText = "Storage RAID Desktop o NAS 2-Bay (8TB - 16TB)";
-        descElem.innerText = "Volume di dati critico. Necessario un sistema desktop ridondato per salvare il master.";
+        descElem.innerText = "Volume di dati critico. Consigliato un sistema ridondato da studio per l'archiviazione master.";
         query = "nas synology 2 bay hard disk ironwolf";
       }
 
